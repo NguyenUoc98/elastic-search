@@ -1,0 +1,470 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700,800,900');
+body {
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    background-image: url('../img/background/background.png');
+    background-size: cover;
+    margin: 0;
+}
+
+.top-banner {
+    width: 100%;
+    height: 74px;
+    background: url('../img/top_banner.png');
+    background-size: cover;
+}
+
+.top-banner-text {
+    font-size: 17px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.btn-close {
+    width: 34px;
+    height: 34px;
+    background-color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 34px;
+    font-weight: 800;
+}
+
+.top-navation-bar {
+    position: absolute;
+    top: 74px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.top-navation-bar .row {
+    padding: 14px 0;
+}
+
+.border-bottom {
+    border-bottom: rgb(86, 94, 97) solid 1px;
+}
+
+.language {
+    text-align: right;
+    font-weight: 800;
+}
+
+.language span {
+    padding-left: 20px;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.menu a {
+    color: rgb(34, 34, 34);
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+.menu-icon i {
+    font-size: 20px;
+    margin-left: 25px;
+}
+
+.main-banner {
+    height: 901.85px;
+    background-image: url('../img/main_banner/main_banner.png');
+    background-size: cover;
+}
+
+.main-banner .caption {
+    position: absolute;
+    text-align: center;
+    width: fit-content;
+    top: 380px;
+    right: 45%;
+}
+
+.main-banner .caption .title {
+    font-size: 103.4px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -8px;
+}
+
+.main-banner .caption .title .number {
+    font-size: 43px;
+    color: rgb(34, 34, 34);
+    line-height: 1;
+    letter-spacing: 77px;
+    text-align: end;
+}
+
+.main-banner .caption p {
+    max-width: 512px;
+    margin-top: 35px;
+}
+
+.btn {
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    background: linear-gradient(to right, rgb(249, 35, 110), rgb(249, 35, 70));
+    border-radius: 0;
+    margin-top: 18px;
+}
+
+.banner-feature {
+    background-color: #fff;
+    margin-top: -52px;
+    position: absolute;
+    right: 0;
+    left: 0;
+    z-index: 3;
+}
+
+.sql-service {
+    margin-top: -45px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.sql-service .item {
+    text-align: center;
+    width: fit-content;
+    color: #000;
+}
+
+.sql-service .item .icon {
+    color: rgb(91, 91, 91)!important;
+    font-size: 36px;
+    width: 108px;
+    height: 108px;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 27px;
+    margin: auto;
+}
+
+.sql-service .item .title {
+    font-size: 26px;
+    font-weight: 900;
+    margin: -20px 0 0 0;
+    color: #000;
+}
+
+.product-banner {
+    margin-top: 110px;
+    display: flex;
+}
+
+.product-banner .banner {
+    width: 535px;
+    height: 292px;
+    margin-left: 18px;
+    margin-right: 18px;
+    background-color: rgb(215, 239, 249);
+}
+
+.product-banner .banner img {
+    height: 100%;
+    width: auto;
+    float: right;
+}
+
+.product-banner .banner .caption {
+    position: absolute;
+    max-width: 229px;
+    margin: 45px;
+}
+
+.product-banner .banner .caption .title {
+    font-size: 48.34px;
+    font-weight: 800;
+    letter-spacing: -4px;
+    line-height: 1;
+}
+
+.product-banner .banner .caption p {
+    margin-top: 20px!important;
+}
+
+.featured-product {
+    text-align: center;
+    margin-top: 110px;
+    color: #000;
+}
+
+.featured-product .heading p,
+.latest-news .heading p {
+    font-size: 25.83px;
+    font-weight: 900;
+}
+
+.carousel {
+    margin-top: 25px;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.carousel-inner .carousel-item {
+    margin-left: 10px;
+    margin-right: 10px;
+    max-width: 262px;
+    text-align: center;
+}
+
+.carousel-inner .carousel-item .title {
+    font-size: 18px;
+    margin-top: 28px;
+    margin-bottom: 0;
+}
+
+.carousel-inner .carousel-item i {
+    color: rgb(255, 200, 8);
+}
+
+.real {
+    color: rgb(107, 107, 107);
+    text-decoration-line: line-through;
+}
+
+.sale {
+    color: #000;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.carousel-inner .active+.carousel-item+.carousel-item+.carousel-item {
+    display: block;
+}
+
+.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)+.carousel-item+.carousel-item+.carousel-item {
+    transition: none;
+}
+
+
+/* Show 5th slide on lg if col-lg-3 */
+
+.carousel-inner .active.col-lg-3.carousel-item+.carousel-item+.carousel-item+.carousel-item+.carousel-item {
+    position: absolute;
+    top: 0;
+    right: -25%;
+    /*change this with javascript in the future*/
+    z-index: -1;
+    display: block;
+    visibility: visible;
+}
+
+
+/* left or forward direction */
+
+.carousel-item-next.carousel-item-left+.carousel-item+.carousel-item+.carousel-item+.carousel-item {
+    position: relative;
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+}
+
+
+/* right or prev direction //t - previous slide direction last item animation fix */
+
+.carousel-item-prev.carousel-item-right+.carousel-item+.carousel-item+.carousel-item+.carousel-item {
+    position: relative;
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+    display: block;
+    visibility: visible;
+}
+
+.nav-control {
+    text-align: center;
+    margin-top: 55px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    position: unset;
+    background-color: rgb(202, 202, 202);
+    opacity: 1;
+    padding: 8px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin: 3px;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: rgb(249, 35, 87);
+}
+
+.latest-news {
+    text-align: center;
+    padding-top: 130px;
+    padding-bottom: 185px;
+    background-image: url('../img/bg.png');
+    background-size: cover;
+}
+
+.latest-news .heading {
+    margin-bottom: 50px;
+}
+
+.latest-news .item .content {
+    padding: 30px;
+}
+
+.latest-news .item {
+    background-color: #fff;
+    text-align: left;
+    font-size: 14px;
+}
+
+.latest-news .item .content .title {
+    color: rgb(81, 81, 81);
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.latest-news .item .content .sub-title {
+    color: rgb(168, 168, 168);
+}
+
+.latest-news .item .content .action {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.latest-news .item img {
+    width: 100%;
+}
+
+.product-section {
+    background-color: #fff;
+    margin-top: -105px;
+}
+
+.latest-and-hot {
+    margin: 42px 32px 37px 32px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px rgb(194, 194, 194);
+}
+
+.left-side,
+.right-side {
+    width: 358px;
+    ;
+}
+
+.left-side .item,
+.right-side .item {
+    display: flex;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-bottom: solid 1px rgb(194, 194, 194);
+}
+
+.left-side .item .content,
+.right-side .item .content {
+    margin-left: 30px;
+}
+
+.left-side .item .content .title,
+.right-side .item .content .title {
+    font-size: 18px;
+    color: #000;
+}
+
+.left-side .item .content i,
+.right-side .item .content i {
+    color: rgb(255, 200, 8);
+}
+
+.left-side .sale,
+.right-side .sale {
+    color: rgb(249, 35, 73);
+}
+
+.left-side .out-brand,
+.right-side .out-brand {
+    width: 100%;
+    font-size: 25.83px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #000;
+}
+
+.subcrise {
+    margin-top: 78px;
+    margin-bottom: 55px;
+    text-align: center;
+    color: #000;
+}
+
+.subcrise .heading p {
+    font-size: 25.83px;
+    font-weight: 900;
+}
+
+.subcrise .email {
+    display: flex;
+    justify-content: center;
+    margin-top: 38px;
+}
+
+.subcrise input {
+    height: 31px;
+    width: 527px;
+    margin-right: 5px;
+}
+
+.brand-logo {
+    position: absolute;
+    width: 100%;
+    background-color: rgb(238, 238, 238);
+    margin-top: -85px;
+    z-index: -1;
+}
+
+.footer {
+    background-image: url('../img/footer.png');
+    background-size: cover;
+    color: #fff;
+}
+
+.footer .title {
+    font-size: 16px;
+    font-weight: 800;
+    padding-top: 78px;
+}
+
+.footer i {
+    margin-right: 15px;
+}
+
+.footer .payment-card i {
+    margin-right: 6px;
+    font-size: 24px;
+    opacity: 0.6;
+}
+
+.footer p {
+    font-size: 15px;
+}
+
+.bottom-text {
+    margin: 65px 0 100px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.bottom-text a {
+    color: #fff;
+    margin-right: 30px;
+}
