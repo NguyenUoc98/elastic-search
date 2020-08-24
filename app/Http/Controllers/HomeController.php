@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Test;
-use App\Gtranslate;
 use Illuminate\Http\Request;
+use Stichoza\GoogleTranslate\GoogleTranslate;
 
 include(app_path() . '\HTMLDom\SimpleHtmlDom.php');
 
@@ -63,29 +63,47 @@ class HomeController extends Controller
      */
     public function getContent(Request $request)
     {
-        $gt = new Gtranslate();
+        $tr = new GoogleTranslate('vi');
 
         if ($request->has('url') && $request->url != '') {
-            $page = mb_convert_encoding(file_get_contents($request->url), 'UTF-8', 'GB2312');
-            $array = explode("\n", $page);
 
-            foreach ($array as $index => $line) {
-                if (preg_match("/\p{Han}+/u", $line)) {
-                    $line = $gt->translate($line, 'vi', 'zh');
-                    $array[$index] = str_replace("&#39;", "'", html_entity_decode($line));
-                }
-            }
-
-            dd($array);
-
+            // Lấy nội dung html cần lấy
             $html = file_get_html($request->url);
-            $infoTable = str_get_html(html_entity_decode($gt->translate($html->find('.InforBox', 0), 'vi', 'zh')));
-            $result = [];
-            foreach ($infoTable->find('p') as $row) {
-                $infoRow = $row->find('span');
-                $result[$infoRow[0]->plaintext] = $infoRow[1]->plaintext;
+            $find = $request->html_tag . ($request->name_tag == 'class' ? '.' : '#') . $request->name;
+            $title = $tr->translate(str_replace('-', ' - ', $html->find('title', 0)->plaintext));
+            $html = $html->find($find, 0)->outertext;
+
+            // Nếu lấy nội dung
+            if ($request->type == 'content') {
+                $result = '';
+                $str = '';
+                do {
+                    // Giới hạn 5000 ký tự 1 lần dịch
+                    $str = substr($html, 0, strlen($html) > 5000 ? 5000 : strlen($html));
+                    $index = strrpos($str, ">") + 1;
+                    $str = substr($html, 0, $index);
+                    if ($str != '') {
+                        // Dịch và xóa các dấu cách thừa
+                        $lineTemp = $tr->translate(str_replace('>', ">\r\n", $str));
+                        $search = [' "', ' =', ' .', '. ', ' / ', ' /', '/ ', '= '];
+                        $replace = ['"', '=', '.', '.', '/', '/', '/', '='];
+                        $result .= str_replace($search, $replace, $lineTemp);
+                    }
+                    $html = trim(substr($html, $index));
+                } while (str_word_count($str) != 0);
+                $content = html_entity_decode($result);
+                
+                return view('get_content', compact('content', 'title'));
+            } else {
+                // Nếu lấy thông số kĩ thuật
+                $infoTable = str_get_html(html_entity_decode($tr->translate($html)));
+                $result = [];
+                foreach ($infoTable->find('p') as $row) {
+                    $infoRow = $row->find('span');
+                    $result[$infoRow[0]->plaintext] = $infoRow[1]->plaintext;
+                }
+                return view('get_content', compact('result'));
             }
-            return json_encode($result, JSON_UNESCAPED_UNICODE);
         }
         return view('get_content');
     }
